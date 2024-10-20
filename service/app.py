@@ -1,6 +1,6 @@
 import json
 from flask import Flask, jsonify, request
-from utils.openai_api import get_open_ai_resp, get_ddgs_ai_result
+from service.utils.api_query import get_ddgs_ai_result
 from utils.db import add_user, get_all_users, create_tables, authenticate_user, start_conversation, add_message, get_conversation_history, get_conversation_ids_for_user, delete_table
 import os
 from flask_cors import CORS
@@ -78,24 +78,8 @@ def start_conversation_api():
     else:
         return jsonify({'error': 'Invalid credentials'}), 401
 
-
-@app.route('/getapimessage', methods=['GET'])
-def get_api_message():
- global previous_conv
- userInput = request.args.get('input') 
- openairesp = get_open_ai_resp(previous_conv,userInput)
-#  openairesp = get_open_ai_resp(previous_conv,rephrase_question_output)
- message = {
-    "role": "assistant",
-    "content": openairesp
-  }
- previous_conv = previous_conv + "{role: assistant, content: " + openairesp + "} "
- response = jsonify(message)
- response.headers.add("Access-Control-Allow-Origin", "*")
- return response
-
 if __name__ == '__main__':
 #    delete_table("Messages")
 #    delete_table("Conversations")
-   create_tables()
+#    create_tables()
    app.run(port=5000)
