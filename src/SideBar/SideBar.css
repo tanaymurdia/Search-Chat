@@ -1,0 +1,75 @@
+.sidebar {
+    width: 250px;
+    border-right: 1px solid #444;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: rgba(44, 47, 51, 0.8); /* Dark and semi-transparent */
+    backdrop-filter: blur(10px); /* Adding a blur effect */
+    border-radius: 10px; /* Rounded corners */
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+  }
+  
+  .sidebar h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    font-size: smaller;
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.2s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent for hover */
+  }
+  
+  .sidebar li:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Slight highlight on hover */
+  }
+
+  .gradient-background {
+    background: linear-gradient(-45deg, #2a2a2a, #3f3f3f, #222d31, #313131);
+    background-size: 400%;
+    animation: gradient 15s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+  }
+
+  .conv-input{
+    position: absolute;
+    bottom: 4%;
+    left: 18%;
+  }
+
+  .conv-input button {
+    /* margin: auto; */
+    /* margin-left: 10px; */
+    padding: 10px 40px;
+    border: none;
+    border-radius: 4px;
+    background-color: #000000;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* .conv-input button:hover {
+    background-color: #5b6eae;
+  } */
