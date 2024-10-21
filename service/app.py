@@ -17,7 +17,6 @@ def convert_timestamps(messages):
 
 def get_all_conversation(user_id):
     conv_ids = get_conversation_ids_for_user(user_id)
-    # add_message(2, "User","2nd message")
     conv_dict={}
     for conv_id in conv_ids:
         messages = get_conversation_history(conv_id)

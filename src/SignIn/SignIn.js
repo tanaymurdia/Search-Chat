@@ -18,7 +18,8 @@ const SignInForm = ({onSignIn}) => {
       });
 
       // Handle success (store token, navigate, etc.)
-      const success = response.data.success;
+      if(success)
+        {const success = response.data.success;
       const conversations = response.data.conversations;
       const user_id = response.data.user_id;
       const conversation_list = Object.entries(conversations).map(([key, value]) => ({
@@ -29,10 +30,11 @@ const SignInForm = ({onSignIn}) => {
       onSignIn(user_id, conversation_list)
       console.log(conversation_list[1])
       console.log(conversation_list)
-      setMessage('Sign-in successful!');
-      // Proceed with other actions, like redirecting
+      setMessage('Sign-in successful!');}
+      else {
+        setMessage('Cannot Sign-In as Server seems to have an issue')
+      }
     } catch (error) {
-      // Handle error (e.g., show error message)
       if (error.response) {
         setMessage(error.response.data.error || 'Sign-in failed');
       } else {

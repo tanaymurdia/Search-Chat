@@ -12,17 +12,15 @@ function ChatHistory({ messages, loading }) {
     while ((match = anchorRegex.exec(inputText)) !== null) {
       console.log("Check 2")
       console.log(chunks)
-      const fullTag = match[0];        // Complete match, like <a href='link'>text</a>
-      const href = match[1];           // URL extracted from href
-      const content = match[2];        // Placeholder text between <a> and </a>
+      const fullTag = match[0];       
+      const href = match[1];           
+      const content = match[2];        
       const startIndex = match.index;
   
-      // Push regular text before the match
       if (startIndex > lastIndex) {
         chunks.push(<div>{inputText.substring(lastIndex, startIndex)}</div>);
       }
   
-      // Create a button element
       chunks.push(
         <button className="glow-on-hover link-button" key={startIndex} onClick={() => window.open(href, '_blank')}>
           {content}
@@ -32,7 +30,6 @@ function ChatHistory({ messages, loading }) {
       lastIndex = anchorRegex.lastIndex;
     }
   
-    // Push any remaining text after the last match
     if (lastIndex < inputText.length) {
 
       chunks.push(<div>{inputText.substring(lastIndex)}</div>);

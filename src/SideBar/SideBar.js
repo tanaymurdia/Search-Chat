@@ -4,10 +4,6 @@ import axios from 'axios';
 
 function Sidebar({user_id, conversations, selectConversation, setConversations}) {
   let rev_conversations = [...conversations].reverse()
-  // const startNewConversation = () => {
-    console.log("normal: ", conversations)
-  console.log("reversed: ", rev_conversations)
-  // };
   const startNewConversation = async () => {
 
     try {
@@ -15,21 +11,28 @@ function Sidebar({user_id, conversations, selectConversation, setConversations})
         userid: user_id,
       });
   
-      // Handle success (store token, navigate, etc.)
       const success = response.data.success;
-      const conversations = response.data.conversations;
+      if(success)
+        {const conversations = response.data.conversations;
       const conversation_list = Object.entries(conversations).map(([key, value]) => ({
         title: key,
         messages: value,
       }));
       console.log(conversation_list)
       setConversations(conversation_list)
-      // rev_conversations = [...conversations].reverse()
-      selectConversation(rev_conversations.length - 1)
+      selectConversation(rev_conversations.length - 1)}
+      else {
+        alert('Issue with starting conversation. Please try again later')
+      }
     } catch (error) {
-      // Handle error (e.g., network issue)
-    } finally {
-    }
+      if (error.response) {
+        alert(error.response.data.error || 'Starting Conversation Failed');
+      } else {
+        alert('An error occurred. Please try again.');
+      }
+    } 
+    // finally {
+    // }
   };
 
   const capitalizeFirstLetter = (string) => {

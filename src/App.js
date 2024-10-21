@@ -56,14 +56,21 @@ function App() {
   
       // Handle success (store token, navigate, etc.)
       const success = response.data.success;
-      const conversation = response.data.conversation;
+     if (success)
+      {const conversation = response.data.conversation;
       console.log("add: ", conversation)
       newConversations[selectedConversation] =  {
         title: newConversations[selectedConversation].title,
         messages: conversation
+      }}else {
+        alert('Issue with sending message. Please try again later')
       }
     } catch (error) {
-      // Handle error (e.g., network issue)
+      if (error.response) {
+        alert(error.response.data.error || 'Sneding message Failed');
+      } else {
+        alert('An error occurred. Please try again.');
+      }
     } finally {
       scrollToBottom();
       setIsLoading(false);
