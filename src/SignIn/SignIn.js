@@ -18,9 +18,8 @@ const SignInForm = ({onSignIn}) => {
       });
 
       // Handle success (store token, navigate, etc.)
-      if(success)
-        {const success = response.data.success;
-      const conversations = response.data.conversations;
+      if(response.data.success)
+        { const conversations = response.data.conversations;
       const user_id = response.data.user_id;
       const conversation_list = Object.entries(conversations).map(([key, value]) => ({
         title: key,
@@ -28,8 +27,6 @@ const SignInForm = ({onSignIn}) => {
       }));
     //   localStorage.setItem('authToken', token); // Example of storing the token
       onSignIn(user_id, conversation_list)
-      console.log(conversation_list[1])
-      console.log(conversation_list)
       setMessage('Sign-in successful!');}
       else {
         setMessage('Cannot Sign-In as Server seems to have an issue')
@@ -64,6 +61,7 @@ const SignInForm = ({onSignIn}) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+        {message && <p>{message}</p>}
         </div>
         <button type="submit" className="sign-in-button">Sign In</button>
       </form>

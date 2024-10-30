@@ -29,3 +29,10 @@
   margin: 10px;
   font-size: 14px;
 }
+
+.no-conv{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 20% auto;
+}

@@ -18,9 +18,8 @@ function Sidebar({user_id, conversations, selectConversation, setConversations})
         title: key,
         messages: value,
       }));
-      console.log(conversation_list)
       setConversations(conversation_list)
-      selectConversation(rev_conversations.length - 1)}
+      selectConversation(conversation_list.length - 1)}
       else {
         alert('Issue with starting conversation. Please try again later')
       }

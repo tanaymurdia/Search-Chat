@@ -1,7 +1,7 @@
 import json
 from flask import Flask, jsonify, request
-from service.utils.api_query import get_ddgs_ai_result
-from utils.db import add_user, get_all_users, create_tables, authenticate_user, start_conversation, add_message, get_conversation_history, get_conversation_ids_for_user, delete_table
+from utils.api_query import get_ddgs_ai_result
+from utils.db import add_user, get_all_users, create_tables, authenticate_user, start_conversation, add_message, get_conversation_history, get_conversation_ids_for_user, delete_table, setup_postgres
 import os
 from flask_cors import CORS
 from datetime import datetime
@@ -78,7 +78,7 @@ def start_conversation_api():
         return jsonify({'error': 'Invalid credentials'}), 401
 
 if __name__ == '__main__':
-#    delete_table("Messages")
-#    delete_table("Conversations")
-#    create_tables()
+   setup_postgres()
+   create_tables()
+   add_user("searchapp", "searchapp12")
    app.run(port=5000)

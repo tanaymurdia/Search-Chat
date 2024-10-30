@@ -7,12 +7,9 @@ function ChatHistory({ messages, loading }) {
     const chunks = [];
     let lastIndex = 0;
     let match;
-    console.log("Check")
   
     while ((match = anchorRegex.exec(inputText)) !== null) {
-      console.log("Check 2")
-      console.log(chunks)
-      const fullTag = match[0];       
+      // const fullTag = match[0];       
       const href = match[1];           
       const content = match[2];        
       const startIndex = match.index;
@@ -37,14 +34,6 @@ function ChatHistory({ messages, loading }) {
   
     return chunks;
   }
-  
-  const DynamicButtonsComponent = ({ text }) => {
-    return (
-      <div>
-        <p>{parseTextWithButtons(text)}</p>
-      </div>
-    );
-  };
 
   
   return (

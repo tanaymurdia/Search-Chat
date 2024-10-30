@@ -58,7 +58,6 @@ function App() {
       const success = response.data.success;
      if (success)
       {const conversation = response.data.conversation;
-      console.log("add: ", conversation)
       newConversations[selectedConversation] =  {
         title: newConversations[selectedConversation].title,
         messages: conversation
@@ -67,7 +66,7 @@ function App() {
       }
     } catch (error) {
       if (error.response) {
-        alert(error.response.data.error || 'Sneding message Failed');
+        alert(error.response.data.error || 'Sending message Failed');
       } else {
         alert('An error occurred. Please try again.');
       }
@@ -95,7 +94,7 @@ function App() {
         {conversations.length > 0 && conversations[selectedConversation] ? (
           <ChatHistory messages={conversations[selectedConversation].messages} loading={isLoading} />
         ) : (
-          <p>No conversations available.</p>
+          <p className='no-conv'>No conversations available.</p>
         )}
         <ChatInput addMessage={addMessage} />
       </div>
