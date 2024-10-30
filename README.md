@@ -12,7 +12,7 @@ Search Chatbot is an intuitive conversational agent designed to assist users wit
 - **Comprehensive Responses:** Get detailed answers and recommendations for numerous inquiries.
 - **Versatile Applications:** Suitable for various uses, from finding local activities to general inquiries.
 
-##Screenshots
+## Screenshots
 -  Login Functionality
 ![image](https://github.com/user-attachments/assets/3b6fe9c3-f1cb-461d-be06-40d21474bb1f)
 - Conversation and Chat History
