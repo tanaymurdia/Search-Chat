@@ -3,7 +3,7 @@ from psycopg2.extras import RealDictCursor
 from psycopg2 import sql, Error
 
 admin_user = 'postgres'  # Typically, the default superuser is 'postgres'
-admin_password = 'tanay123' # This one depends on what the admin password is when done the setup
+admin_password = 'admin_password' # This one depends on what the admin password is when done the setup
 host = 'localhost'
 port = '5432'
 
